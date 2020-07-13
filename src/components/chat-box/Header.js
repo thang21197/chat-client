@@ -1,4 +1,5 @@
 import React from 'react';
+import $ from 'jquery';
 import PropTypes from 'prop-types';
 
 Header.propTypes = {
@@ -6,6 +7,9 @@ Header.propTypes = {
 };
 
 function Header(props) {
+     const handleToggle = () =>{
+        $('.action_menu').toggle();
+     }
     return (
         <div className="card-header msg_head">
           <div className="d-flex bd-highlight">
@@ -22,7 +26,7 @@ function Header(props) {
               <span><i className="fas fa-phone" /></span>
             </div>
           </div>
-          <span id="action_menu_btn"><i className="fas fa-ellipsis-v" /></span>
+          <span id="action_menu_btn" onClick={handleToggle}><i className="fas fa-ellipsis-v" /></span>
           <div className="action_menu">
             <ul>
               <li><i className="fas fa-user-circle" /> View profile</li>
