@@ -8,13 +8,10 @@ import _map from 'lodash/map';
 import io from 'socket.io-client';
 
 function App() {
-  const [messages,setMessages]=useState([{id: 1, userId: 0, message: 'Hello'}]);
+  const [messages,setMessages]=useState([{id:0,userId:0,message:'hello'}]);
   const [user,setUser]=useState(null);
-  var socket=null;
+  var  socket=io('localhost:6969');
   // var count= messages.length;
-  useEffect(()=>{
-    socket=io('localhost:6969');
- });
 
   useEffect(()=>{
       socket.on('id',res=>setUser(res));
@@ -22,9 +19,11 @@ function App() {
   },[messages]);
 
   const newMessage = (m) => {
-      const mess = messages;
-      let ids=_map(messages,'id');
+      const mess = [...messages];
+      let ids=_map([...messages],'id');
       let max=Math.max(...ids);
+      // console.log(ids);
+      
       mess.push({
         id:max+1,
         userId:m.id,
@@ -47,10 +46,9 @@ function App() {
   const sendnewMessage=(m)=>{
     if(m.value){
       // console.log(m.value);
-      // socket = io('localhost:6969');
       socket.emit("newMessage",m.value);
       m.value="";
-      // console.log(messages);
+      // setMessages(messages);
     }
   }
   

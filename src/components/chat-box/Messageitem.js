@@ -14,7 +14,7 @@ function Messageitem(props) {
             </div>
             <div className="msg_cotainer">
               {props.message}
-              <span className={props.user?'msg_time ':'msg_time_send'}>8:40 AM, Today</span>
+              <span className={props.user?'msg_time':'msg_time_send'}>8:40 AM, Today</span>
             </div>
         </div>
     );
