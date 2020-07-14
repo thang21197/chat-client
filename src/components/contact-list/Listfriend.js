@@ -7,7 +7,7 @@ Listfriend.propTypes = {
 
 function Listfriend(props) {
     return (
-        <ui className="contacts">
+        <ul className="contacts">
             <li className="active">
               <div className="d-flex bd-highlight">
                 <div className="img_cont">
@@ -68,7 +68,7 @@ function Listfriend(props) {
                 </div>
               </div>
             </li>
-          </ui>
+          </ul>
     );
 }
 
