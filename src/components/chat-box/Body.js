@@ -9,7 +9,7 @@ Body.propTypes = {
 function Body(props) {
     // const [state, setState] = useState(props);
     // const forceUpdate = useCallback(() => updateState({}), []);
-    console.log(props);
+    // console.log(props);
     return (
         <div className="card-body msg_card_body">
           { props.messages.map(item=>{
